@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { TodoList } from "./Components/TodoList";
+import { FormTodo } from "./Components/FormTodo";
 
-function App() {
+// function App() {
+//   return <div className="App"></div>;
+// }
+
+// React Function Component 型定義
+const App: React.FC = () => {
+  const [todos, setTodos] = useState<{id: string, text: string}[]>([{id: "def1", text: "default item"}]);
+
+  const todoAddHandler = (newItem: string) => {
+    setTodos([{id: Math.random().toString(), text: newItem}, ...todos]);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FormTodo onAddTodo={todoAddHandler.bind(this)} />
+      <TodoList items={todos} />
     </div>
   );
-}
+};
 
 export default App;
