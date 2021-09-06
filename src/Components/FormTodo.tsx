@@ -1,4 +1,6 @@
 import React, { useRef } from "react";
+import "../css/FormTodo.scss";
+
 
 interface addFunctionProps {
   onAddTodo: (newItem: string) => void;
@@ -12,12 +14,13 @@ export const FormTodo: React.FC<addFunctionProps> = (props) => {
     event.preventDefault();
     const enteredText = textInputRef.current!.value;
     props.onAddTodo(enteredText);
+    textInputRef.current!.value = "";
   };
 
   return (
-    <form onSubmit={todoSubmitHandler}>
+    <form onSubmit={todoSubmitHandler} className="inner">
       <div>
-        <label htmlFor="todo-text">Todo Content</label>
+        <label htmlFor="todo-text">TodoList</label>
         <input type="text" id="todo-text" ref={textInputRef} />
       </div>
       <button type="submit">Add.</button>

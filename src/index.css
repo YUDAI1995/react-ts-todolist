@@ -8,3 +8,12 @@ body {
 * {
   box-sizing: border-box;
 }
+.inner {
+  max-width: calc(100% - 80px);
+  margin: 0 auto;
+}
+@media screen and (min-width: 760px) {
+  .inner {
+    max-width: calc(100% - 20px);
+  }
+}
