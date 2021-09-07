@@ -1,8 +1,14 @@
 form {
+  display: flex;
+  align-items: flex-end;
   margin: 0 60px;
 
   &.inner {
-    margin: 20px auto 40px;
+    margin: 20px auto;
+  }
+
+  .inputForm {
+    width: 100%;
   }
 
   label {
@@ -16,24 +22,29 @@ form {
     border: 1px solid #d1d1d1;
     border-radius: 4px;
     padding: 6px 10px;
-  }
 
-  input:focus {
-    outline: none;
-    border-color: #ffb546;
-    background-color: #fff7ea;
+    &::placeholder {
+      color: #bbbbbb;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #ffb546;
+      background-color: #fff7ea;
+    }
   }
 
   button {
-    display: block;
-    min-width: 160px;
+    width: 160px;
+    max-height: 42px;
     font-size: 14px;
     color: #ffffff;
+    word-break: break-all;
     background: #ff922d;
-    margin: 10px auto 0;
+    margin-left: 20px;
     border: 1px solid #ffdbba;
     border-radius: 6px;
-    padding: 12px 40px;
+    padding: 12px 10px;
     cursor: pointer;
     transition: 0.3s;
   }

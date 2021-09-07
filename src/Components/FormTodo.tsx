@@ -19,9 +19,9 @@ export const FormTodo: React.FC<addFunctionProps> = (props) => {
 
   return (
     <form onSubmit={todoSubmitHandler} className="inner">
-      <div>
+      <div className="inputForm">
         <label htmlFor="todo-text">TodoList</label>
-        <input type="text" id="todo-text" ref={textInputRef} />
+        <input type="text" id="todo-text" ref={textInputRef} placeholder="Enter to add."/>
       </div>
       <button type="submit">Add.</button>
     </form>
