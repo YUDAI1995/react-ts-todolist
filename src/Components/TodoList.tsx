@@ -19,7 +19,7 @@ export const TodoList: React.FC<TodoListProps> = (props) => {
           </div>
 
           <button onClick={props.onDeleteTodo.bind(this, todo.id)}>
-            Delete.
+            Delete
           </button>
         </li>
       ))}

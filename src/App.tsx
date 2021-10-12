@@ -3,13 +3,10 @@ import { TodoList } from "./Components/TodoList";
 import { FormTodo } from "./Components/FormTodo";
 import { Filtter } from "./Components/Filtter";
 import { Todo, TodoItem } from "./models/todolist.model";
+import { Modal } from "./Components/Modal";
 import { Footer } from "./Components/Footer";
 import { Tab } from "./models/tab.model";
 import { validate } from "class-validator";
-
-// function App() {
-//   return <div className="App"></div>;
-// }
 
 // React Function Component 型定義
 const App: React.FC = () => {
@@ -18,9 +15,10 @@ const App: React.FC = () => {
   ]);
 
   const [activeTab, setActiveTab] = useState<Tab>("All");
+  const [modalShow, setModalShow] = useState<boolean>(false);
 
   const todoAddHandler = (newItem: string) => {
-    // todosが常に最新か保証できない
+    // todosが常に最新か保証できないため
     //setTodos([{ id: Math.random().toString(), text: newItem }, ...todos]);
 
     const newTodoItem = new TodoItem(Math.random().toString(), newItem, false);
@@ -33,7 +31,7 @@ const App: React.FC = () => {
         setTodos((prevtodos) => [newTodoItem, ...prevtodos]);
       })
       .catch((err) => {
-        alert("Please enter an item.");
+        setModalShow(true);
       });
   };
 
@@ -41,7 +39,7 @@ const App: React.FC = () => {
     setTodos((prevtodos) => prevtodos.filter((todo) => todo.id !== todoId));
   };
 
-  const tabItem: Tab[] = ["All", "Done", "Todo"];
+  const tabItem: Tab[] = ["All", "Todo", "Done"];
   const todoFiltterHandler = (tab: Tab) => {
     setActiveTab(tab);
   };
@@ -76,6 +74,7 @@ const App: React.FC = () => {
         onDeleteTodo={todoDeleteHandler}
         onCheckHandler={onCheckHandler}
       />
+      <Modal modalShow={modalShow} setModalShow={setModalShow} />
       <Footer />
     </div>
   );

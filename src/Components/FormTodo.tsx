@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import "../css/FormTodo.scss";
 
-
 interface addFunctionProps {
   onAddTodo: (newItem: string) => void;
 }
@@ -21,9 +20,14 @@ export const FormTodo: React.FC<addFunctionProps> = (props) => {
     <form onSubmit={todoSubmitHandler} className="inner">
       <div className="inputForm">
         <label htmlFor="todo-text">TodoList</label>
-        <input type="text" id="todo-text" ref={textInputRef} placeholder="Enter to add."/>
+        <input
+          type="text"
+          id="todo-text"
+          ref={textInputRef}
+          placeholder="Enter to add."
+        />
       </div>
-      <button type="submit">Add.</button>
+      <button type="submit" id="submitBtn">Add</button>
     </form>
   );
 };

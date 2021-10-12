@@ -3,7 +3,7 @@ import "../css/Footer.scss";
 
 export const Footer: React.FC = () => {
     return (
-        <footer>&copy; yy-work</footer>
+        <footer>&copy; 2021 YUDAI1995</footer>
     )
 
 }

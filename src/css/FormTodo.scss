@@ -42,7 +42,7 @@ form {
     word-break: break-all;
     background: #ff922d;
     margin-left: 20px;
-    border: 1px solid #ffdbba;
+    border: 0;
     border-radius: 6px;
     padding: 12px 10px;
     cursor: pointer;
@@ -56,8 +56,7 @@ form {
   button:hover,
   button:active {
     color: #ff5e2d;
-    background: #fffefe;
-    border-color: #ff922d;
+    background: #ffd5ae;
   }
 }
 
